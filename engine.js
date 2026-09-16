@@ -105,7 +105,7 @@
   let ticking=false;
   const update=()=>{
     const max=document.documentElement.scrollHeight-innerHeight;
-    .progress span.style.width=(max>0?(scrollY/max)*100:0)+'%';
+    $('.progress span').style.width=(max>0?(scrollY/max)*100:0)+'%';
     $$('.parallax img').forEach(img=>{
       const r=img.parentElement.getBoundingClientRect(), delta=(innerHeight/2-(r.top+r.height/2))*0.035;
       img.style.setProperty('--py',Math.max(-18,Math.min(18,delta))+'px');
