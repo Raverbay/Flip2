@@ -47,8 +47,8 @@ footer{padding:35px 4vw;background:var(--ink);color:var(--paper);display:grid;gr
 <section class="section" id="story">
 <div class="section-head"><div class="kicker">01 / Story</div><div class="intro">La moda cambia. Il modo in cui scegliamo cosa vale la pena indossare, no.</div></div>
 <div class="editorial">
-<div><div class="large"><img src="lookbook-wide.png" alt="Flip&Co campaign"></div><div class="caption"><span>Flip&Co</span><span>Selected since 1986</span></div></div>
-<div><div class="small"><img src="store-women.png" alt="Flip&Co store"></div><div class="caption"><span>Inside the store</span><span>Cagliari</span></div></div>
+<div><div class="large parallax-wrap"><img src="lookbook-wide.png" alt="Flip&Co campaign"></div><div class="caption"><span>Flip&Co</span><span>Selected since 1986</span></div></div>
+<div><div class="small parallax-wrap"><img src="store-women.png" alt="Flip&Co store"></div><div class="caption"><span>Inside the store</span><span>Cagliari</span></div></div>
 </div>
 </section>
 
@@ -91,7 +91,7 @@ footer{padding:35px 4vw;background:var(--ink);color:var(--paper);display:grid;gr
 <div><h2>LA FIDUCIA<br>SI VEDE.</h2><p>Una storia lunga quasi quarant'anni si costruisce giorno dopo giorno, persona dopo persona. Le recensioni sono parte di questa storia.</p></div>
 </section>
 
-<section class="cta" id="contact">
+<section class="cta reveal-up" id="contact">
 <div class="kicker">07 / Contact</div>
 <h2>LET'S<br>MEET.</h2>
 <div class="cta-row"><div>FLIP&CO · CAGLIARI · DAL 1986</div><a class="cta-button" href="https://wa.me/393661087819">Parla con noi →</a></div>
@@ -104,7 +104,62 @@ footer{padding:35px 4vw;background:var(--ink);color:var(--paper);display:grid;gr
 <div class="foot"><b>Follow</b><a href="https://www.instagram.com/">Instagram</a><a href="https://maps.google.com/?q=Via+Italia+22+Cagliari">Google Maps</a><a href="https://wa.me/393661087819">WhatsApp</a></div>
 </footer>
 <script>
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) {
+        e.preventDefault();
+        t.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+      }
+    });
+  });
+
+  if (reduce) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
+
+  document.querySelectorAll('.reveal,.reveal-up,.reveal-scale,.stagger').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.sectionHead h2,.intro h2,.story h2,.visitCopy h2,.cta h2').forEach(el => {
+    el.classList.add('heading-reveal');
+    observer.observe(el);
+  });
+
+  const parallax = [...document.querySelectorAll('.parallax-wrap img')];
+  let ticking = false;
+
+  const updateParallax = () => {
+    const vh = window.innerHeight;
+    parallax.forEach(img => {
+      const r = img.parentElement.getBoundingClientRect();
+      const center = r.top + r.height / 2;
+      const offset = Math.max(-18, Math.min(18, (vh / 2 - center) * .035));
+      img.style.setProperty('--parallax', offset.toFixed(2) + 'px');
+    });
+    ticking = false;
+  };
+
+  const requestParallax = () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', requestParallax, {passive:true});
+  window.addEventListener('resize', requestParallax);
+  updateParallax();
+})();
 </script>
 </body>
 </html>
