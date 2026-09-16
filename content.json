@@ -1,0 +1,110 @@
+{
+  "site": {
+    "theme": "fashion",
+    "locale": "it",
+    "brandName": "Flip&Co",
+    "eyebrow": "Cagliari · Via Italia 22 · Dal 1986",
+    "tagline": "Più di un negozio. Un modo di essere.",
+    "introTitle": "LA MODA\nCHE SCEGLI.",
+    "introLead": "Una selezione di brand, persone e storie costruita a Cagliari dal 1986.",
+    "introBody": "Uomo, donna e bambino. Entrare da Flip&Co significa trovare ricerca, stile e un modo personale di vivere l'abbigliamento.",
+    "accent": "#b8ff38",
+    "background": "#f4f2ec",
+    "ink": "#11120f"
+  },
+  "hero": {
+    "image": "lookbook-main.png",
+    "logo": "logo-transparent.png",
+    "kicker": "SELECTED / SINCE 1986",
+    "headline": [
+      "PIÙ DI UN",
+      "NEGOZIO.",
+      "UN MODO DI ESSERE."
+    ],
+    "meta": "CAGLIARI · VIA ITALIA 22"
+  },
+  "collections": [
+    {
+      "name": "UOMO",
+      "image": "lookbook-wide.png",
+      "label": "01 / MEN",
+      "text": "Street, casual, contemporary."
+    },
+    {
+      "name": "DONNA",
+      "image": "store-women.png",
+      "label": "02 / WOMEN",
+      "text": "Ricerca, stile e personalità."
+    },
+    {
+      "name": "BAMBINO",
+      "image": "junior.png",
+      "label": "03 / KIDS",
+      "text": "Comfort, qualità e carattere."
+    }
+  ],
+  "brands": [
+    "Tommy Hilfiger",
+    "Calvin Klein",
+    "Guess",
+    "Levi's®",
+    "The North Face",
+    "Nike",
+    "adidas",
+    "Vans",
+    "carhartt",
+    "New Balance",
+    "Timberland",
+    "DICKIES",
+    "ONLY",
+    "Jack & Jones",
+    "Vero Moda",
+    "name it"
+  ],
+  "story": {
+    "kicker": "04 / THE STORE",
+    "title": [
+      "DAL",
+      "1986.",
+      "A CAGLIARI."
+    ],
+    "body": "Flip&Co nasce nel 1986 e cresce con la città. Dal 2011 la nostra casa è in Via Italia 22: uno spazio dove incontrarsi, scegliere e trovare il proprio modo di essere.",
+    "image": "store-entrance.png"
+  },
+  "editorial": {
+    "kicker": "01 / EDITORIAL",
+    "title": [
+      "SCELTI",
+      "PER TE."
+    ],
+    "large": "lookbook-wide.png",
+    "small": "store-women.png"
+  },
+  "store": {
+    "kicker": "05 / VISIT",
+    "title": [
+      "PASSA",
+      "A TROVARCI."
+    ],
+    "image": "store-entrance.png",
+    "address": "Via Italia 22, Cagliari",
+    "hours": "Lun–Sab · 09:00–13:30 / 16:00–20:00",
+    "phone": "+39 366 108 7819",
+    "whatsapp": "393661087819",
+    "maps": "https://maps.google.com/?q=Via+Italia+22+Cagliari"
+  },
+  "reviews": {
+    "rating": "4,2",
+    "count": "41 recensioni",
+    "title": "LA FIDUCIA SI VEDE.",
+    "body": "Una storia lunga quasi quarant'anni si costruisce giorno dopo giorno, persona dopo persona."
+  },
+  "contact": {
+    "title": [
+      "SEE YOU",
+      "IN STORE."
+    ],
+    "instagram": "https://www.instagram.com/",
+    "whatsapp": "393661087819"
+  }
+}
